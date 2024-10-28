@@ -56,7 +56,7 @@ function Landing() {
             <label className='text-lg lg:text-xl font-semibold'>Password</label>
             <input
               type="password"
-              className='w-full h-[40px] rounded-[20px] p-2'
+              className='w-full h-[40px] rounded-[20px] p-4'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
