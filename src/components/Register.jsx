@@ -1,68 +1,128 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
 
+import React, { useState } from 'react';
 
 function Register() {
-  return (
-    <div className='h-[100vh] bg-[white] flex justify-center items-center'>
-      <div className="h-[90vh] w-[50%] bg-slate-300 grid grid-rows-[15%,60%,20%] p-5 rounded-[5px]">
-        <div className="grid justify-center ">
-          <h2 className='text-[30px] font-bold'>Registration</h2>
-        </div>
-        <div className=" grid grid-cols-2 gap-7">
-          <div className=" grid grid-rows-[30%,30%,30%] gap-0">
-            <div className="">
-              <h2 className='text-[18px] font-semibold'>Full Name</h2>
-              <input type="text" placeholder='Enter your Name' className='p-3 w-full h-[30px] border-black rounded-[5px]'/>
-            </div>
-            <div className="">
-               <h2 className='text-[18px] font-semibold'>Email</h2>
-               <input type="text" placeholder='Enter your email' className='p-3 w-full h-[30px] border-black rounded-[5px]'/>
-            </div>
-            <div className="">
-                <h2 className='text-[18px] font-semibold'>Password</h2>
-                <input type="text" placeholder='Enter your password' className='p-3 w-full h-[30px] border-black rounded-[5px]'/>
-            </div>
-          </div>
-          <div className=" grid grid-rows-[30%,30%,30%] gap-0">
-            <div className="">
-              <h2 className='text-[18px] font-semibold'>Username</h2>
-              <input type="text" placeholder='Enter your username' className='p-3 w-full h-[30px] border-black rounded-[5px]'/>
-            </div>
-            <div className="">
-               <h2 className='text-[18px] font-semibold'>Phone Number</h2>
-               <input type="text" placeholder='Enter your number' className='p-3 w-full h-[30px] border-black rounded-[5px]'/>
-            </div>
-            <div className="">
-                <h2 className='text-[18px] font-semibold'>Confirm Password</h2>
-                <input type="text" placeholder='confirm your password' className='p-3 w-full h-[30px] border-black rounded-[5px]'/>
-            </div>
-          </div>
-               
-        </div>
-        <div className="">
-          <h2 className='text-[20px] font-bold'>Gender</h2>
-          <div className="grid grid-cols-3 p-3 ">
-            <div className="">
-              <input type="checkbox" />  Male
-            </div>
-            <div className="">
-              <input type="checkbox" />Female
-            </div>
-            <div className="">
-              <input type="checkbox" />Prefer Not to say
-            </div>
-          </div>
-          <div className="">
-            <button className='h-[40px] w-full bg-green-600 hover:bg-green-700  text-white rounded-[15px]'>Register</button>
-          </div>
-        </div>
+  const [role, setRole] = useState('');
 
+  // Form submission handler
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle registration submission here
+    console.log(`Registration form submitted for role: ${role}`);
+  };
+
+  // Common Registration Form
+  const RegistrationForm = () => (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="flex gap-4">
+        <div className="flex-1">
+          <label className="block text-sm font-semibold text-gray-700">First Name</label>
+          <input
+            type="text"
+            placeholder="First Name"
+            className="w-full mt-1 p-3 border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+        <div className="flex-1">
+          <label className="block text-sm font-semibold text-gray-700">Last Name</label>
+          <input
+            type="text"
+            placeholder="Last Name"
+            className="w-full mt-1 p-3 border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
       </div>
 
+      <div>
+        <label className="block text-sm font-semibold text-gray-700">Email</label>
+        <input
+          type="email"
+          placeholder="Enter your email"
+          className="w-full mt-1 p-3 border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        />
+      </div>
 
+      <div>
+        <label className="block text-sm font-semibold text-gray-700">Phone Number</label>
+        <input
+          type="tel"
+          placeholder="Enter your phone number"
+          className="w-full mt-1 p-3 border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        />
+      </div>
+
+      <div>
+        <label className="block text-sm font-semibold text-gray-700">Address</label>
+        <input
+          type="text"
+          placeholder="Enter your address"
+          className="w-full mt-1 p-3 border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        />
+      </div>
+      <div>
+        <label className="block text-sm font-semibold text-gray-700">Username</label>
+        <input
+          type="text"
+          placeholder="Username"
+          className="w-full mt-1 p-3 border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        />
+      </div>
+
+      <div className="flex gap-4">
+        <div className="flex-1">
+          <label className="block text-sm font-semibold text-gray-700">Password</label>
+          <input
+            type="password"
+            placeholder="Enter your password"
+            className="w-full mt-1 p-3 border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+        <div className="flex-1">
+          <label className="block text-sm font-semibold text-gray-700">Confirm Password</label>
+          <input
+            type="password"
+            placeholder="Confirm password"
+            className="w-full mt-1 p-3 border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+      </div>
+
+      <button className="w-full py-3 bg-green-600 text-white font-semibold rounded-md hover:bg-green-700 transition duration-300">
+        Register as {role.charAt(0).toUpperCase() + role.slice(1)}
+      </button>
+    </form>
+  );
+
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-gray-100 p-4">
+      <div className="w-full max-w-md bg-slate-300 rounded-lg shadow-lg p-8 space-y-6">
+        
+        {/* Header */}
+        <h2 className="text-3xl font-bold text-center text-black">Register</h2>
+        
+        {/* Role Selection */}
+        {!role && (
+          <div>
+            <label className="block text-sm font-semibold text-gray-700">Select Role</label>
+            <select
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+              className="w-full mt-1 p-3 border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            >
+              <option value="">Choose your role</option>
+              <option value="student">Student</option>
+              <option value="parent">Parent</option>
+              {/* <option value="teacher">Teacher</option> */}
+              {/* <option value="admin">Admin</option> */}
+            </select>
+          </div>
+        )}
+
+        {/* Conditional Rendering of Form */}
+        {role && <RegistrationForm />}
+      </div>
     </div>
-  )
+  );
 }
 
-export default Register
+export default Register;
